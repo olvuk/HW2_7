@@ -6,7 +6,7 @@ import skypro.hw2_7.Employee;
 import skypro.hw2_7.service.EmployeeService;
 
 
-import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -23,22 +23,22 @@ public class Controller {
     }
 
     @GetMapping("/add")
-    public Employee add(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.add(firstName, lastName);
+    public Employee add(@RequestParam String contractNumber, @RequestParam String firstName, @RequestParam String lastName) {
+        return employeeService.add(contractNumber, firstName, lastName);
     }
 
     @GetMapping("/remove")
-    public Employee remove(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.remove(firstName, lastName);
+    public Employee remove(@RequestParam String contractNumber, @RequestParam String firstName, @RequestParam String lastName) {
+        return employeeService.remove(contractNumber, firstName, lastName);
     }
 
     @GetMapping("/find")
-    public Employee find(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.find(firstName, lastName);
+    public Employee find(@RequestParam String contractNumber, @RequestParam String firstName, @RequestParam String lastName) {
+        return employeeService.find(contractNumber, firstName, lastName);
     }
 
     @GetMapping("/getAll")
-    public List<Employee> getAll() {
+    public Map<String, Employee> getAll() {
         return employeeService.getAll();
     }
 }
